@@ -81,6 +81,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}:${{ github.ref_type == 'tag' && github.ref_name || 'latest' }}
 
   deploy-surge:
     name: Deploy to Surge
